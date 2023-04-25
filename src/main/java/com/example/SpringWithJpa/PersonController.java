@@ -18,11 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonController {
 	@Autowired
 	private PersonService personService;
+	@Autowired
+	private PersonRepo repo;
 	
 	@PostMapping("/submit")
 	public String submitPerson(@RequestBody Person person) {
 		
-		return personService.submitPerson(person);	
+		//return personService.submitPerson(person);
+		repo.save(person);
+		return "data saved sucessfully";
 	}
 	@GetMapping("/getAll")
 	public List<Person> getAllPersons(){
