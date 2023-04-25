@@ -25,6 +25,7 @@ public class PersonController {
 	public String submitPerson(@RequestBody Person person) {
 		
 		//return personService.submitPerson(person);
+		//Is it come data in controller?
 		repo.save(person);
 		return "data saved sucessfully";
 	}
